@@ -30,6 +30,11 @@
     font-size: larger
 }
 
+.navbar-logo {
+    /*height: 45px;
+    width: 45px;*/
+    color: black;
+}
 /*#endregion */
 
 .footer {
