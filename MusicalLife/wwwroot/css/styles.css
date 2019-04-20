@@ -1,0 +1,29 @@
+﻿.form-control:focus {
+    border-color: #ff6a00;
+    box-shadow: inset 0 1px 1px rgba(255, 106, 0, 0.075), 0 0 4px rgba(255, 106, 0, 0.6);
+}
+
+.navbar-item {
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: larger
+}
+
+.navbar-item-color {
+    color: rgb(255, 106, 0);
+}
+
+.navbar-item-color:hover {
+    color: rgb(255, 180, 0);
+}
+
+.navbar-cart {
+    margin-left: 32px;
+    margin-right: 8px;
+    font-size: larger
+}
+
+.navbar-cart-price {
+    margin-right: 8px;
+    font-size: larger
+}

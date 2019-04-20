@@ -4,8 +4,55 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
 </head>
 <body>
+    <!-- #region NAVBAR -->
+
+    <nav class="navbar navbar-expand-sm bg-dark">
+        <a class="navbar-brand navbar-item-color navbar-item" href="#">Logo</a>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item navbar-item">
+                    <a class="nav-link navbar-item-color" href="#">Hot</a>
+                </li>
+                <li class="nav-item navbar-item">
+                    <a class="nav-link navbar-item-color" href="#">Recommended</a>
+                </li>
+                <li class="nav-item navbar-item">
+                    <a class="nav-link navbar-item-color" href="#">Bestsellers</a>
+                </li>
+            </ul>
+        </div>
+
+        <form class="form-inline align" action="">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Search...">
+            </div>
+        </form>
+
+        <div class="form-inline align">
+            <ul class="navbar-nav">
+                <li class="nav-item navbar-cart">
+                    <a class="nav-link navbar-item-color" href="#">Cart:</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item navbar-cart-price">
+                    <a class="nav-link navbar-item-color" href="#">0,00</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- #endregion -->
+
+
+
     <div>
         <h1>LAYOUT</h1>
         @RenderBody()
