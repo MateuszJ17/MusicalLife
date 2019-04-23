@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using MusicalLife.Interfaces;
+using MusicalLife.Models;
 
 namespace MusicalLife
 {
@@ -14,6 +16,7 @@ namespace MusicalLife
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSingleton<ITrackRepository, MockTrackRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
