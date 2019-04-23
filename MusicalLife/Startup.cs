@@ -16,6 +16,8 @@ namespace MusicalLife
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            //Dependency injection for Track Repository
             services.AddSingleton<ITrackRepository, MockTrackRepository>();
         }
 

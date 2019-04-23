@@ -16,11 +16,17 @@ namespace MusicalLife.Interfaces
         Track GetTrack(int trackID);
 
         /// <summary>
+        /// Gets all avaiable tracks
+        /// </summary>
+        /// <returns>Returns list of all tracks</returns>
+        List<Track> GetAllTracks();
+
+        /// <summary>
         /// Get tracks in the genre
         /// </summary>
         /// <param name="genre">Desired genre of music (ex. "rock", "jazz")</param>
         /// <returns>Tracks in desired genre</returns>
-        Track GetTracksByGenre(string genre);
+        List<Track> GetTracksByGenre(string genre);
 
         /// <summary>
         /// Get tracks released in desired years

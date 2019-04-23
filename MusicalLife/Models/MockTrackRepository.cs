@@ -28,7 +28,52 @@ namespace MusicalLife.Models
                 },
                 new Track()
                 {
+                    TrackID = 4,
+                    Performer = "TestPerformer4",
+                    Album = "TestAlbum6",
+                    AlbumID = 5,
+                    ReleaseDate = new DateTime(2018, 02, 01),
+                    Genre = "Rock"
+                },
+                new Track()
+                {
+                    TrackID = 5,
+                    Performer = "TestPerformer4",
+                    Album = "TestAlbum6",
+                    AlbumID = 5,
+                    ReleaseDate = new DateTime(2018, 02, 01),
+                    Genre = "Rock"
+                },
+                new Track()
+                {
+                    TrackID = 6,
+                    Performer = "TestPerformer4",
+                    Album = "TestAlbum6",
+                    AlbumID = 5,
+                    ReleaseDate = new DateTime(2018, 02, 01),
+                    Genre = "Rock"
+                },
+                new Track()
+                {
                     TrackID = 2,
+                    Performer = "TestPerformer2",
+                    Album = "TestAlbum2",
+                    AlbumID = 2,
+                    ReleaseDate = new DateTime(2004, 02, 01),
+                    Genre = "Jazz"
+                },
+                new Track()
+                {
+                    TrackID = 7,
+                    Performer = "TestPerformer2",
+                    Album = "TestAlbum2",
+                    AlbumID = 2,
+                    ReleaseDate = new DateTime(2004, 02, 01),
+                    Genre = "Jazz"
+                },
+                new Track()
+                {
+                    TrackID = 8,
                     Performer = "TestPerformer2",
                     Album = "TestAlbum2",
                     AlbumID = 2,
@@ -44,7 +89,30 @@ namespace MusicalLife.Models
                     ReleaseDate = new DateTime(2014, 02, 01),
                     Genre = "Country"
                 },
+                new Track()
+                {
+                    TrackID = 9,
+                    Performer = "TestPerformer3",
+                    Album = "TestAlbum3",
+                    AlbumID = 3,
+                    ReleaseDate = new DateTime(2014, 02, 01),
+                    Genre = "Country"
+                },
+                new Track()
+                {
+                    TrackID = 10,
+                    Performer = "TestPerformer3",
+                    Album = "TestAlbum3",
+                    AlbumID = 3,
+                    ReleaseDate = new DateTime(2014, 02, 01),
+                    Genre = "Country"
+                },
             };
+        }
+
+        public List<Track> GetAllTracks()
+        {
+            return _tracks;
         }
 
         public Track GetTrack(int trackID)
@@ -58,9 +126,10 @@ namespace MusicalLife.Models
             throw new NotImplementedException();
         }
 
-        public Track GetTracksByGenre(string genre)
+        public List<Track> GetTracksByGenre(string genre)
         {
-            throw new NotImplementedException();
+            var result = _tracks.Where(x => x.Genre == genre).ToList();
+            return result;
         }
     }
 }

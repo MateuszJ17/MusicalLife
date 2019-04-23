@@ -10,6 +10,7 @@ namespace MusicalLife.Controllers
 {
     public class HomeController : Controller
     {
+
         private ITrackRepository _trackRepository;
 
         public HomeController(ITrackRepository trackRepository)
@@ -17,16 +18,28 @@ namespace MusicalLife.Controllers
             _trackRepository = trackRepository;
         }
 
-        public IActionResult Index(Track track)
+        public IActionResult Index(List<Track> tracks)
         {
-            track = _trackRepository.GetTrack(1);
-            return View(track);
+            tracks = _trackRepository.GetAllTracks();
+            return View(tracks);
         }
         
-        [Route("/Test")]
-        public IActionResult Test()
+        public IActionResult Details(int trackID)
+        {   
+            var result = _trackRepository.GetTrack(trackID);
+            return View(result);
+        }
+        public IActionResult Hot(List<Track> tracks)
         {
-            return View();
+            //TODO: Rebuild using GetTracksByDate
+            tracks = _trackRepository.GetAllTracks();
+            return View(tracks);
+        }
+        public IActionResult Recommended(List<Track> tracks)
+        {
+            //TODO: Rebuild using GetTracksByDate
+            tracks = _trackRepository.GetTracksByGenre("Rock");
+            return View(tracks);
         }
     }
 }

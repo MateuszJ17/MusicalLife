@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+}
+
+@model MusicalLife.Models.Track
+
+<h4>Performer: @Model.Performer</h4>
+<h3>Album: @Model.Album</h3>
+<h3>Release Date: @Model.ReleaseDate.Day/@Model.ReleaseDate.Month/@Model.ReleaseDate.Year</h3>
+<h2>Price: *PLACEHOLDER*</h2>
+<br />
+<a class="btn btn-primary" asp-controller="Home" asp-action="Index">Back</a>
+

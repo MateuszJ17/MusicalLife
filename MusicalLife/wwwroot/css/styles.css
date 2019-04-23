@@ -1,4 +1,23 @@
-﻿/*#region NAVBAR */
+﻿body {
+    height: 100%;
+}
+
+.line {
+    background-color:darkgray;
+    margin-bottom: 2%;
+}
+
+.filters {
+    border: 3px solid black;
+    border-radius: 15px;
+}
+
+.genreHeader {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+/*#region NAVBAR */
 
 .form-control:focus {
     border-color: #ff6a00;
@@ -37,11 +56,12 @@
 
 /*#region FOOTER */
 .footer {
-    position: absolute;
+    /*position: fixed;
     bottom: 0;
     width: 100%;
-    height: 60px;
-    line-height: 60px;
+    height: 60px;*/
+    /*line-height: 60px;*/
+    margin-top: 50px!important;
     background-color: #212529;
 }
 /*#endregion */
