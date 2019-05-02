@@ -13,8 +13,9 @@ namespace MusicalLife.Models
         public int TrackID { get; set; }
         public string Performer { get; set; }
         public string Album { get; set; }
-        public int AlbumID { get; set; }
         public DateTime ReleaseDate { get; set; }
         public string Genre { get; set; }
+        public int Downloads { get; set; }
+        public decimal Price { get; set; }
     }
 }
