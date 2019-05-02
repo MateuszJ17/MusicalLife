@@ -4,26 +4,28 @@
 }
 @model List<MusicalLife.Models.Track>
 
-<div class="card-deck genreHeader">
-    @{
-        foreach (var item in Model)
-        {
-            <div class="card">
-                <div class="card-header">IMAGE</div>
-                <div class="card-body">
-                    <p>Performer: @item.Performer</p>
-                    <p>Album: @item.Album</p>
-                    <p>Release Date: @item.ReleaseDate.Day/@item.ReleaseDate.Month/@item.ReleaseDate.Year</p>
-                    <p>Genre: @item.Genre</p>
+<div class="row" style="width: 100%">
+    <div class="card-deck genreHeader">
+        @{
+            foreach (var item in Model)
+            {
+                <div class="card">
+                    <div class="card-header">IMAGE</div>
+                    <div class="card-body">
+                        <p>Performer: @item.Performer</p>
+                        <p>Album: @item.Album</p>
+                        <p>Release Date: @item.ReleaseDate.Day/@item.ReleaseDate.Month/@item.ReleaseDate.Year</p>
+                        <p>Genre: @item.Genre</p>
+                    </div>
+                    <div class="card-footer">
+                        <row>
+                            <a class="btn btn-primary" asp-controller="home" asp-action="Details" asp-route-trackID="@item.TrackID">Details</a>
+                            <button class="btn btn-primary">Add to cart</button>
+                        </row>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <row>
-                        <a class="btn btn-primary" asp-controller="home" asp-action="Details" asp-route-trackID="@item.TrackID">Details</a>
-                        <button class="btn btn-primary">Add to cart</button>
-                    </row>
-                </div>
-            </div>
+            }
         }
-    }
+    </div>
 </div>
-
+<br style="margin-bottom:168px;" />

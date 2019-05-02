@@ -6,9 +6,14 @@
 @model MusicalLife.Models.Track
 
 <h4>Performer: @Model.Performer</h4>
+<hr class="line" />
 <h3>Album: @Model.Album</h3>
+<hr class="line" />
 <h3>Release Date: @Model.ReleaseDate.Day/@Model.ReleaseDate.Month/@Model.ReleaseDate.Year</h3>
+<hr class="line" />
 <h2>Price: *PLACEHOLDER*</h2>
+<hr class="line" />
 <br />
 <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Back</a>
+<br style="margin-bottom:220px;"/>
 
