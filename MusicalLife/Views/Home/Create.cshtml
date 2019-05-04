@@ -1,0 +1,49 @@
+﻿@model MusicalLife.Models.Track
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Track</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Performer" class="control-label"></label>
+                <input asp-for="Performer" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Album" class="control-label"></label>
+                <input asp-for="Album" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ReleaseDate" class="control-label"></label>
+                <input asp-for="ReleaseDate" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Genre" class="control-label"></label>
+                <input asp-for="Genre" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Downloads" class="control-label"></label>
+                <input asp-for="Downloads" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" asp-controller="home" asp-action="AddTrack" asp-route-track="@Model"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -21,6 +21,7 @@ namespace MusicalLife.Controllers
         public IActionResult Index(List<Track> tracks)
         {
             tracks = _trackRepository.GetAllTracks();
+
             return View(tracks);
         }
         
@@ -29,17 +30,31 @@ namespace MusicalLife.Controllers
             var result = _trackRepository.GetTrack(trackID);
             return View(result);
         }
+
         public IActionResult Hot(List<Track> tracks)
         {
             //TODO: Rebuild using GetTracksByDate
             tracks = _trackRepository.GetAllTracks();
             return View(tracks);
         }
+
         public IActionResult Recommended(List<Track> tracks)
         {
             //TODO: Rebuild using GetTracksByDate
             tracks = _trackRepository.GetTracksByGenre("Rock");
             return View(tracks);
+        }
+
+        public IActionResult AddTrack(Track track)
+        {
+            //track = _trackRepository.Add(new Track { Album = "Test2", Downloads = 333, Genre = "Jazz", Performer = "Test2", Price = 10, ReleaseDate = DateTime.Now });
+            track = _trackRepository.Add(track);
+            return View("Create");
+        }
+
+        public IActionResult CreateTrack()
+        {
+            return View("Create");
         }
     }
 }

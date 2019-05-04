@@ -33,6 +33,8 @@ namespace MusicalLife.Interfaces
         /// </summary>
         /// <param name="releaseDate">Desired year</param>
         /// <returns>Tracks released in desired year</returns>
-        Track GetTracksByDate(DateTime releaseDate);
+        List<Track> GetTracksByDate(DateTime releaseDate);
+
+        Track Add(Track track);
     }
 }
