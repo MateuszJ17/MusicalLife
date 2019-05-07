@@ -32,6 +32,18 @@ namespace MusicalLife.Models
             return _context.Tracks.Find(trackID);
         }
 
+        public Track GetTrackByDate(DateTime releaseDate)
+        {
+            var track = _context.Tracks.Where(song => song.ReleaseDate == releaseDate);
+            return track as Track;
+        }
+
+        public List<Track> GetTracksByAuthor(string performer)
+        {
+            var tracks = _context.Tracks.Where(song => song.Performer == performer);
+            return tracks.ToList();
+        }
+
         public List<Track> GetTracksByDate(DateTime releaseDate)
         {
             var tracks = _context.Tracks.Where(song => song.ReleaseDate == releaseDate);
@@ -41,6 +53,12 @@ namespace MusicalLife.Models
         public List<Track> GetTracksByGenre(string genre)
         {
             var tracks = _context.Tracks.Where(song => song.Genre == genre);
+            return tracks.ToList();
+        }
+
+        public List<Track> GetTracksByAlbum(string album)
+        {
+            var tracks = _context.Tracks.Where(song => song.Album == album);
             return tracks.ToList();
         }
     }

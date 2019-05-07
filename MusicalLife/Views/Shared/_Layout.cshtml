@@ -1,5 +1,4 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -27,12 +26,12 @@
             </ul>
         </div>
 
-        <form class="form-inline align" action="">
+        <form class="form-inline align" asp-controller="home" asp-action="Search" asp-route-input=input>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-search"></i></span>
                 </div>
-                <input type="text" class="form-control" placeholder="Search...">
+                <input id="input" name="input" type="search" class="form-control" placeholder="Search...">
             </div>
         </form>
 

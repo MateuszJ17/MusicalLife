@@ -47,7 +47,6 @@ namespace MusicalLife.Controllers
 
         public IActionResult AddTrack(Track track)
         {
-            //track = _trackRepository.Add(new Track { Album = "Test2", Downloads = 333, Genre = "Jazz", Performer = "Test2", Price = 10, ReleaseDate = DateTime.Now });
             track = _trackRepository.Add(track);
             return View("Create");
         }
@@ -55,6 +54,35 @@ namespace MusicalLife.Controllers
         public IActionResult CreateTrack()
         {
             return View("Create");
+        }
+
+        public IActionResult Search(string input)
+        {
+            if (DateTime.TryParse(input, out DateTime date))
+            {
+                var search = _trackRepository.GetTracksByDate(date);
+                if (search.Count > 0)
+                    return View(search);
+            }
+            if (!(input == String.Empty))
+            {
+                var search = _trackRepository.GetTracksByGenre(input);
+                if (search.Count > 0)
+                    return View(search);
+            }
+            if (!(input == String.Empty))
+            {
+                var search = _trackRepository.GetTracksByAuthor(input);
+                if (search.Count > 0)
+                    return View(search);
+            }
+            if (!(input == String.Empty))
+            {
+                var search = _trackRepository.GetTracksByAlbum(input);
+                if (search.Count > 0)
+                    return View(search);
+            }
+            return View(new List<Track>());
         }
     }
 }

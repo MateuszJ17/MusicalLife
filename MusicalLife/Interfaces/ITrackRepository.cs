@@ -35,6 +35,9 @@ namespace MusicalLife.Interfaces
         /// <returns>Tracks released in desired year</returns>
         List<Track> GetTracksByDate(DateTime releaseDate);
 
+        List<Track> GetTracksByAuthor(string performer);
+        List<Track> GetTracksByAlbum(string album);
+
         Track Add(Track track);
     }
 }
