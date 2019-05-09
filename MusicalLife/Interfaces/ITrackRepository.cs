@@ -37,6 +37,7 @@ namespace MusicalLife.Interfaces
 
         List<Track> GetTracksByAuthor(string performer);
         List<Track> GetTracksByAlbum(string album);
+        List<Track> GetTracksByDownloads(int downloads);
 
         Track Add(Track track);
     }

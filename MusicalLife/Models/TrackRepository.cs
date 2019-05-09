@@ -61,5 +61,11 @@ namespace MusicalLife.Models
             var tracks = _context.Tracks.Where(song => song.Album == album);
             return tracks.ToList();
         }
+
+        public List<Track> GetTracksByDownloads(int downloads)
+        {
+            var tracks = _context.Tracks.Where(song => song.Downloads >= downloads);
+            return tracks.ToList();
+        }
     }
 }

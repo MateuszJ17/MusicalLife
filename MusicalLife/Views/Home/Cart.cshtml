@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Cart";
+}
+
+@model List<MusicalLife.Models.Track>
+    <h2>Products in your cart:</h2>
+    <hr class="line"/>
+
+    @{
+    decimal price = 0;
+    foreach (var item in Model)
+    {
+    <h3>Album: @item.Album</h3>
+    <h3>Price: @item.Price</h3>
+    <h3>Genre: @item.Genre</h3>
+    price += item.Price;
+    <hr class="line"/>
+    }
+    <h2>Total price: @price</h2>
+    }

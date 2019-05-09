@@ -23,21 +23,29 @@ namespace MusicalLife
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-
+            services.AddMvc().AddSessionStateTempDataProvider();
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.CookieName = ".MyApplication";
+            });
             //Dependency injection for Track Repository
             services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(_config.GetConnectionString("MusicalLifeDB")));
             services.AddScoped<ITrackRepository, TrackRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            HttpHelper.Configure(app.ApplicationServices.GetRequiredService<IHttpContextAccessor>());
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseStatusCodePages();
                 app.UseStaticFiles();
             }
+            app.UseSession();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
         }

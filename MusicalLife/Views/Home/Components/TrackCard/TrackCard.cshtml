@@ -8,9 +8,9 @@
 <html>
 <body>
     <div class="row" style="width:100%">
-        <div class="col-md-2 filters">
-            FILTERS PLACEHOLDER
-        </div>
+        @*<div class="col-md-2 filters">
+                FILTERS PLACEHOLDER
+            </div>*@
         <div class="col">
             <div class="container-fluid">
                 <h3>Rock</h3>
@@ -22,18 +22,18 @@
                         {
                             if (item.Genre == "Rock")
                             {
-                                <div class="card">
-                                    <div class="card-header">IMAGE</div>
+                                <div class="card cardSize">
+                                    <div class="card-header" style="text-align:center"><img class="card-img-top cardImg" src="@item.ImageUrl" alt="Card image"></div>
                                     <div class="card-body">
                                         <p>Performer: @item.Performer</p>
                                         <p>Album: @item.Album</p>
                                         <p>Release Date: @item.ReleaseDate.Day/@item.ReleaseDate.Month/@item.ReleaseDate.Year</p>
                                         <p>Genre: @item.Genre</p>
                                     </div>
-                                    <div class="card-footer">
+                                    <div class="card-footer" style="text-align:center">
                                         <row>
                                             <a class="btn btn-primary" asp-controller="home" asp-action="Details" asp-route-trackID="@item.TrackID">Details</a>
-                                            <button class="btn btn-primary">Add to cart</button>
+                                            <a class="btn btn-primary" style="margin-left: 10px; margin-right:10px;" asp-controller="home" asp-action="AddToCart" asp-route-product="@item">Add to cart</a>
                                         </row>
                                     </div>
                                 </div>
@@ -50,18 +50,18 @@
                         {
                             if (item.Genre == "Jazz")
                             {
-                                <div class="card">
-                                    <div class="card-header">IMAGE</div>
+                                <div class="card cardSize">
+                                    <div class="card-header" style="text-align:center"><img class="card-img-top cardImg" src="@item.ImageUrl" alt="Card image"></div>
                                     <div class="card-body">
                                         <p>Performer: @item.Performer</p>
                                         <p>Album: @item.Album</p>
                                         <p>Release Date: @item.ReleaseDate.Day/@item.ReleaseDate.Month/@item.ReleaseDate.Year</p>
                                         <p>Genre: @item.Genre</p>
                                     </div>
-                                    <div class="card-footer">
+                                    <div class="card-footer" style="text-align:center">
                                         <row>
                                             <a class="btn btn-primary" asp-controller="home" asp-action="Details" asp-route-trackID="@item.TrackID">Details</a>
-                                            <button class="btn btn-primary">Add to cart</button>
+                                            <a class="btn btn-primary" asp-controller="home" asp-action="AddToCart" asp-route-trackID="@item.TrackID" style="margin-left: 10px; margin-right:10px;">Add to cart</a>
                                         </row>
                                     </div>
                                 </div>
@@ -78,18 +78,18 @@
                         {
                             if (item.Genre == "Country")
                             {
-                                <div class="card">
-                                    <div class="card-header">IMAGE</div>
+                                <div class="card cardSize">
+                                    <div class="card-header" style="text-align:center"><img class="card-img-top cardImg" src="@item.ImageUrl" alt="Card image"></div>
                                     <div class="card-body">
                                         <p>Performer: @item.Performer</p>
                                         <p>Album: @item.Album</p>
                                         <p>Release Date: @item.ReleaseDate.Day/@item.ReleaseDate.Month/@item.ReleaseDate.Year</p>
                                         <p>Genre: @item.Genre</p>
                                     </div>
-                                    <div class="card-footer">
+                                    <div class="card-footer" style="text-align:center">
                                         <row>
                                             <a class="btn btn-primary" asp-controller="home" asp-action="Details" asp-route-trackID="@item.TrackID">Details</a>
-                                            <button class="btn btn-primary">Add to cart</button>
+                                            <a class="btn btn-primary" style="margin-left: 10px; margin-right:10px;" asp-controller="home" asp-action="AddToCart" asp-route-product="@item">Add to cart</a>
                                         </row>
                                     </div>
                                 </div>
@@ -106,18 +106,18 @@
                         {
                             if (item.Genre == "Pop")
                             {
-                                <div class="card">
-                                    <div class="card-header">IMAGE</div>
+                                <div class="card cardSize">
+                                    <div class="card-header" style="text-align:center"><img class="card-img-top cardImg" src="@item.ImageUrl" alt="Card image"></div>
                                     <div class="card-body">
                                         <p>Performer: @item.Performer</p>
                                         <p>Album: @item.Album</p>
                                         <p>Release Date: @item.ReleaseDate.Day/@item.ReleaseDate.Month/@item.ReleaseDate.Year</p>
                                         <p>Genre: @item.Genre</p>
                                     </div>
-                                    <div class="card-footer">
+                                    <div class="card-footer" style="text-align:center">
                                         <row>
                                             <a class="btn btn-primary" asp-controller="home" asp-action="Details" asp-route-trackID="@item.TrackID">Details</a>
-                                            <button class="btn btn-primary">Add to cart</button>
+                                            <a class="btn btn-primary" style="margin-left: 10px; margin-right:10px;" asp-controller="home" asp-action="AddToCart" asp-route-product="@item">Add to cart</a>
                                         </row>
                                     </div>
                                 </div>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MusicalLife.Interfaces;
 using MusicalLife.Models;
@@ -12,9 +13,17 @@ namespace MusicalLife.Controllers
     {
 
         private ITrackRepository _trackRepository;
+        private List<Track> _cart;
 
         public HomeController(ITrackRepository trackRepository)
         {
+            //var track = new Track();
+            //Adding shopping cart to session
+            if (HttpHelper.HttpContext.Session.GetObjectFromJson<List<Track>>("Cart") == null)
+            {
+                HttpHelper.HttpContext.Session.SetObjectAsJson("Cart", new List<Track>());
+            }
+
             _trackRepository = trackRepository;
         }
 
@@ -24,24 +33,28 @@ namespace MusicalLife.Controllers
 
             return View(tracks);
         }
-        
+
         public IActionResult Details(int trackID)
-        {   
+        {
             var result = _trackRepository.GetTrack(trackID);
             return View(result);
         }
 
         public IActionResult Hot(List<Track> tracks)
         {
-            //TODO: Rebuild using GetTracksByDate
             tracks = _trackRepository.GetAllTracks();
             return View(tracks);
         }
 
         public IActionResult Recommended(List<Track> tracks)
         {
-            //TODO: Rebuild using GetTracksByDate
-            tracks = _trackRepository.GetTracksByGenre("Rock");
+            tracks = _trackRepository.GetTracksByDownloads(500);
+            return View(tracks);
+        }
+
+        public IActionResult Bestsellers(List<Track> tracks)
+        {
+            tracks = _trackRepository.GetTracksByDownloads(10000);
             return View(tracks);
         }
 
@@ -83,6 +96,26 @@ namespace MusicalLife.Controllers
                     return View(search);
             }
             return View(new List<Track>());
+        }
+
+        public IActionResult Cart()
+        {
+            var cart = HttpHelper.HttpContext.Session.GetObjectFromJson<List<Track>>("Cart");
+            return View(cart);
+        }
+
+        public IActionResult AddToCart(int trackID)
+        {
+            var product = _trackRepository.GetTrack(trackID);
+            if (_cart == null)
+                _cart = new List<Track>();
+
+            var cart = HttpHelper.HttpContext.Session.GetObjectFromJson<List<Track>>("Cart");
+            _cart.Add(product);
+            cart.AddRange(_cart);
+            HttpHelper.HttpContext.Session.SetObjectAsJson("Cart", cart);
+
+            return View("Index", _trackRepository.GetAllTracks());
         }
     }
 }

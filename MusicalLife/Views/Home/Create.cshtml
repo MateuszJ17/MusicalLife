@@ -37,7 +37,11 @@
                 <input asp-for="Price" class="form-control" />
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" asp-controller="home" asp-action="AddTrack" asp-route-track="@Model"/>
+                <label asp-for="ImageUrl" class="control-label"></label>
+                <input asp-for="ImageUrl" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" asp-controller="home" asp-action="AddTrack" asp-route-track="@Model" />
             </div>
         </form>
     </div>

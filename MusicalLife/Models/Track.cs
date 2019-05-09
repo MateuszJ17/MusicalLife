@@ -19,5 +19,6 @@ namespace MusicalLife.Models
         public string Genre { get; set; }
         public int Downloads { get; set; }
         public decimal Price { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

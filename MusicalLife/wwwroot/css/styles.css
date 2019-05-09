@@ -17,8 +17,33 @@
     margin-bottom: 3%;
 }
 
-/*#region NAVBAR */
+.cardSize{
+    max-width: 300px!important;
+}
 
+.cardSizeHot {
+    max-width: 350px !important;
+    min-width: 320px !important;
+    border-color: #ff6a00;
+}
+
+.cardSizeRecommended {
+    max-width: 350px !important;
+    min-width: 320px !important;
+    border-color: steelblue;
+}
+
+.cardSizeBestsellers {
+    max-width: 350px !important;
+    min-width: 320px !important;
+    border-color: limegreen;
+}
+
+.cardImg {
+    max-height: 100px;
+    max-width: 100px;
+}
+/*#region NAVBAR */
 .form-control:focus {
     border-color: #ff6a00;
     box-shadow: inset 0 1px 1px rgba(255, 106, 0, 0.075), 0 0 4px rgba(255, 106, 0, 0.6);

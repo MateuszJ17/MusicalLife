@@ -4,14 +4,15 @@
 }
 
 @model List<MusicalLife.Models.Track>
-<div class="row" style="width: 100%">
+<h3>Hot tracks:</h3>
+<div class="row" style="width: 100%; text-align:center; padding: 5%;">
     <div class="card-deck genreHeader">
         @{
             foreach (var item in Model)
             {
                 if (item.ReleaseDate.Year >= (DateTime.Now.Year - 1))
                 {
-                    <div class="card">
+                    <div class="card cardSizeHot" style="margin: 10px;">
                         <div class="card-header">IMAGE</div>
                         <div class="card-body">
                             <p>Performer: @item.Performer</p>
@@ -19,10 +20,10 @@
                             <p>Release Date: @item.ReleaseDate.Day/@item.ReleaseDate.Month/@item.ReleaseDate.Year</p>
                             <p>Genre: @item.Genre</p>
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer" style="text-align:center">
                             <row>
                                 <a class="btn btn-primary" asp-controller="home" asp-action="Details" asp-route-trackID="@item.TrackID">Details</a>
-                                <button class="btn btn-primary">Add to cart</button>
+                                <button class="btn btn-primary" style="margin-left: 10px; margin-right:10px;">Add to cart</button>
                             </row>
                         </div>
                     </div>
