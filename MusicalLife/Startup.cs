@@ -47,7 +47,10 @@ namespace MusicalLife
             }
             app.UseSession();
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute("default", "{controller=Users}/{action=Login}/{id?}");
+            });
         }
     }
 }

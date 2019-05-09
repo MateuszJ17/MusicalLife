@@ -126,10 +126,16 @@
                     }
                 </div>
                 <div>
-                    <a class="btn btn-primary" id="AddBtn" asp-controller="home" asp-action="CreateTrack">Add</a>
+                    @{
+                        if ((MusicalLife.Enums.UserRoles)ViewData["Role"] == MusicalLife.Enums.UserRoles.Admin)
+                        {
+                            <a class="btn btn-primary" id="AddBtn" asp-controller="home" asp-action="CreateTrack">Add</a>
+                        }
+                    }
                 </div>
             </div>
         </div>
     </div>
 </body>
 </html>
+

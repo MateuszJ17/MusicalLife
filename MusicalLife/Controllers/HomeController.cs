@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MusicalLife.Enums;
 using MusicalLife.Interfaces;
 using MusicalLife.Models;
 
@@ -24,6 +25,11 @@ namespace MusicalLife.Controllers
                 HttpHelper.HttpContext.Session.SetObjectAsJson("Cart", new List<Track>());
             }
 
+            if (HttpHelper.HttpContext.Session.GetObjectFromJson<UserRoles>("Role") == UserRoles.User)
+            {
+                
+            }
+
             _trackRepository = trackRepository;
         }
 
@@ -32,6 +38,12 @@ namespace MusicalLife.Controllers
             tracks = _trackRepository.GetAllTracks();
 
             return View(tracks);
+        }
+        public IActionResult LogOff()
+        {
+            HttpHelper.HttpContext.Session.SetObjectAsJson("Role", null);
+
+            return RedirectToAction("Login", "Users");
         }
 
         public IActionResult Details(int trackID)

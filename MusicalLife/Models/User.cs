@@ -10,7 +10,9 @@ namespace MusicalLife.Models
     public class User
     {
         [Key]
+        [Required]
         public string Login { get; set; }
+        [Required]
         public string Password { get; set; }
         public UserRoles Role { get; set; }
     }
