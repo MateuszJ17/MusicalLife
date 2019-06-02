@@ -49,5 +49,24 @@ namespace MusicalLife.Controllers
 
             return View("Login");
         }
+
+        public IActionResult Register()
+        {
+            return View("CreateUser");
+        }
+
+        public IActionResult CreateUser(string login, string password)
+        {
+            var newUser = new User();
+
+            newUser.Role = Enums.UserRoles.User;
+            newUser.Login = login;
+            newUser.Password = password;
+
+            _context.Users.Add(newUser);
+            _context.SaveChanges();
+
+            return View("Login");
+        }
     }
 }

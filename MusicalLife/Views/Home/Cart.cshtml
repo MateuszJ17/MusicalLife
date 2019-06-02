@@ -3,19 +3,23 @@
 }
 
 @model List<MusicalLife.Models.Track>
-    <h2>Products in your cart:</h2>
-    <hr class="line"/>
+<h2>Products in your cart:</h2>
+<hr class="line" />
 
-    @{
+@{
     decimal price = 0;
     foreach (var item in Model)
     {
-    <h3>Album: @item.Album</h3>
-    <h3>Price: @item.Price</h3>
-    <h3>Genre: @item.Genre</h3>
-    price += item.Price;
-    <hr class="line"/>
+        <h3>Album: @item.Album</h3>
+        <h3>Price: @item.Price</h3>
+        <h3>Genre: @item.Genre</h3>
+        price += item.Price;
+        <hr class="line" />
     }
     <h2>Total price: @price</h2>
-    }
-<br style="margin-top: 170px;" />
+    <div>
+        <a class="btn btn-primary" asp-action="Index">Back</a>
+        <a class="btn btn-primary" asp-action="Checkout">Buy</a>
+    </div>
+}
+<br style="margin-bottom:168px;" />

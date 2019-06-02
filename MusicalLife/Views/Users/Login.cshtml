@@ -28,6 +28,9 @@
             <div class="form-group">
                 <input type="submit" value="Login" class="btn btn-primary" asp-controller="Users" asp-action="GetUser" asp-route-login=Login asp-route-password=Password />
             </div>
+            <div class="form-group">
+                <a asp-controller="users" asp-action="Register">Register</a>
+            </div>
         </form>
     </div>
     <div class="col" style="width: 15%">

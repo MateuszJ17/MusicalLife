@@ -129,5 +129,10 @@ namespace MusicalLife.Controllers
 
             return View("Index", _trackRepository.GetAllTracks());
         }
+
+        public IActionResult Checkout()
+        {
+            return View();
+        }
     }
 }
